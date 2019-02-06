@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="fireService" class="com.koror.service.xml.FireService">
+        <property name="action" value="FireBoll"/>
+    </bean>
+    <bean id="iceService" class="com.koror.service.xml.IceService">
+        <property name="action" value="IceBoll"/>
+    </bean>
+    <bean id="wizardService" class="com.koror.service.xml.WizardService">
+        <property name="iceService">
+            <ref bean="iceService"/>
+        </property>
+        <property name="fireService">
+            <ref bean="fireService"/>
+        </property>
+    </bean>
+
+</beans>
